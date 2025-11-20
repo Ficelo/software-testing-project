@@ -1,0 +1,31 @@
+name : Tests CI
+
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps: 
+            - uses: actions/checkout@v3
+
+            - name: Set up node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            
+            - name: Install dependencies
+              run: npm install
+            
+            - name: Run tests with coverage
+              run: npm run coverage
+            
+            - name: Upload to coveralls
+              run: npx coveralls < coverage/lcov.info
+              env:
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
+    

@@ -7,7 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha \"tests/**/*.js\""
+    "test": "mocha \"tests/**/*.js\"",
+    "coverage": "c8 --exclude-after-remap --reporter=text --reporter=lcov npm test",
+    "coveralls": "npm run coverage && npx coveralls < coverage/lcov.info"
   },
   "author": "",
   "license": "ISC",
