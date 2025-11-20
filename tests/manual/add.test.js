@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const add = require("../../library/src/add").default;
+import { expect } from "chai";
+import add from "../../library/src/add.js";
 
 describe("add.js tests", () => {
 
