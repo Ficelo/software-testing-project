@@ -19,4 +19,12 @@ describe("capitalize.js tests", () => {
         expect(capitalize("")).to.equal("");
     });
 
+    it("Should return Undefined when undefined is used as input", () => {
+        expect(capitalize(undefined)).to.equal("Undefined");
+    });
+
+    it("Should return True when true is used as input", () => {
+        expect(capitalize(true)).to.be.equal("True");
+    })
+
 });
